@@ -1,0 +1,95 @@
+{
+    "details": [
+        {
+            "label": "Listing Title ",
+            "name": "listingTitle",
+            "fieldType": "text",
+            "required": true,
+            "column": 2,
+            "icon":"FaClipboardList"
+        },
+        {
+            "label": "Category ",
+            "name": "category",
+            "fieldType": "dropdown",
+            "options": ["Built PC", "CPU", "Graphics Card", "Memory", "Motherboard", "Storage", "Case", "CPU Cooler", "Power Supply", "Others/Electronics"],
+            "required": true,
+            "column": 1,
+            "icon":"FaComputer"
+        },
+        {
+            "label": "Original Price ",
+            "name": "originalPrice",
+            "fieldType": "number",
+            "column": 1,
+            "icon":"FaMoneyCheckAlt"
+        },
+
+        {
+            "label": "Selling Price ",
+            "name": "sellingPrice",
+            "fieldType": "number",
+            "required": true,
+            "column": 1,
+            "icon":"FaMoneyBillAlt"
+        },
+        
+        {
+            "label": "Model/sku ",
+            "name": "model",
+            "fieldType": "text",
+            "required": true,
+            "column": 1,
+            "icon":"FaTags"
+        },
+        {
+            "label": "Brand/Manufacturer ",
+            "name": "brand",
+            "fieldType": "text",           
+            "required": true,
+            "column": 1,
+            "icon":"FaCheckCircle"
+        },
+        {
+            "label": "Year Bought",
+            "name": "yearBought",
+            "fieldType": "text",
+            "column": 1,
+            "icon":"FaCalendar"
+        },
+        {
+            "label": "Condition of Item",
+            "name": "condition",
+            "fieldType": "dropdown",
+            "options": ["Brand New", "Like New", "Slightly Used", "Well Used", "Heavily Used", "For Parts/Repair"],
+            "required": true,
+            "column": 1,
+            "icon": "FaExclamationCircle"
+        },
+        {
+            "label": "Method of Transaction",
+            "name": "method",
+            "fieldType": "dropdown",
+            "options": ["Meetup", "Delivery", "Meetup or Delivery"],
+            "required": true,
+            "column": 1,
+            "icon": "FaPeopleArrows"
+        },
+        {
+            "label": "Location",
+            "name": "location",
+            "fieldType": "text",
+            "required": true,
+            "column": 1,
+            "icon": "FaLocationDot"
+        },
+        {
+            "label": "Listing Description ",
+            "name": "listingDescription",
+            "fieldType": "textarea",
+            "required": true,
+            "column": 1,
+            "icon":"FaFileAlt"
+        }
+    ]
+}
