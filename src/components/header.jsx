@@ -49,12 +49,17 @@ function Header() {
                 {isSignedIn ? (
                     <div className="flex items-center gap-5">
                         <UserButton />
+                        
                         <Link to={'/profile'}>
+                        
                             <Button>+ Create a Listing</Button>
+                        
                         </Link>
                     </div>
                 ) : (
-                    <Button>Submit Listing</Button>
+                    <SignInButton>
+                        <Button>Submit Listing</Button>
+                    </SignInButton>
                 )}
             </div>
         </div>

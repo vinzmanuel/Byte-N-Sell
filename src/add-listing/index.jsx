@@ -125,9 +125,7 @@ function AddListing() {
                 <h2 className='font-bold text-4xl'>Add New Listing</h2>
                 <form className='p-10 border rounded-xl mt-10'>
                     {/*Details*/}
-                    <UploadImages triggleUploadImages={triggerUploadImages}
-                    setLoader={(v)=>{setLoader(v);navigate('/refresh')}}/>
-                    <Separator className="my-6"/>
+                    
                     <div>
                         <h2 className='font-bold text-2xl mb-6'>Details</h2>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
@@ -177,6 +175,9 @@ function AddListing() {
                             </div>
                         </div>
                     </div>
+                    <Separator className="my-6"/>
+                    <UploadImages triggleUploadImages={triggerUploadImages}
+                    setLoader={(v)=>{setLoader(v);navigate('/refresh')}}/>
                     <Separator className="my-6"/>
                     <div className='mt-10 flex justify-end'>
                         <Button type="submit" disabled={loader} onClick={(e)=>onSubmit(e)}>
