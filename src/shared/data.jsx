@@ -1,7 +1,7 @@
 const Part=[
     {
         id:1,
-        name:'Built PC'
+        name:'Pre-built'
     },
     {
         id:2,
@@ -37,7 +37,7 @@ const Part=[
     },
     {
         id:10,
-        name:'Others/Electronics'
+        name:'Others'
     },
 
 ]
@@ -99,7 +99,7 @@ const Pricing=[
 const Category=[
     {
         id:1,
-        name:'Built PC',
+        name:'Pre-built',
         icon:'/src/assets/icons/gaming-pc.png'
     },
     {
@@ -144,7 +144,7 @@ const Category=[
     },
     {
         id:10,
-        name:'Electronics',
+        name:'Others',
         icon: '/src/assets/icons/electronics.png'
     },
 ]

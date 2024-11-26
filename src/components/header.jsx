@@ -26,11 +26,12 @@ function Header() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lastScrollY]);
 
     return (
         <div
-            className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-transform duration-300 ${
+            className={`px-44 fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-transform duration-300 ${
                 isVisible ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
@@ -52,13 +53,13 @@ function Header() {
                         
                         <Link to={'/profile'}>
                         
-                            <Button>+ Create a Listing</Button>
+                            <Button>Profile</Button>
                         
                         </Link>
                     </div>
                 ) : (
                     <SignInButton>
-                        <Button>Submit Listing</Button>
+                        <Button>Login</Button>
                     </SignInButton>
                 )}
             </div>

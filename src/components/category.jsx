@@ -1,5 +1,6 @@
 import data from '@/shared/data'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Category() {
     return (
@@ -8,11 +9,14 @@ function Category() {
 
             <div className='pt-5 pb-10 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-5 gap-6'>
                 {data.Category.map((category) => (
-                    <div key={category.id} className='border rounded-xl p-3 
-                    flex flex-col items-center justify-center hover:shadow-lg cursor-pointer'> 
-                        <img src={category.icon} width={55} height={55} alt={category.name} />
-                        <h2 className='pt-2'>{category.name}</h2>
-                    </div>
+                    // eslint-disable-next-line react/jsx-key
+                    <Link className="text-black"to={'search/'+category.name}>
+                        <div className='border rounded-xl p-3 
+                        flex flex-col items-center justify-center hover:shadow-lg cursor-pointer'> 
+                            <img src={category.icon} width={55} height={55} alt={category.name} />
+                            <h2 className='pt-2'>{category.name}</h2>
+                        </div>
+                    </Link>
                 ))}
             </div>
         </div>

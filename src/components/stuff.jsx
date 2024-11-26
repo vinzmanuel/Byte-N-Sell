@@ -4,7 +4,7 @@ function Stuff() {
     return (
         <div className='px-96 pb-24 pt-2 bg-white'>
             
-            <h2 className=" pt-24 pb-16 font-extrabold text-3xl text-center mb-8">Sell and buy PC parts and tech on Byte-N-Sell</h2>
+            <h2 className=" pb-16 font-extrabold text-3xl text-center mb-8">Sell and buy PC parts and tech on Byte-N-Sell</h2>
 
             <div className="flex justify-evenly items-stretch gap-6 md:gap-12">
             <div className="flex flex-col items-center text-center w-64 h-full">

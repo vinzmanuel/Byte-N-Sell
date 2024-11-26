@@ -1,21 +1,34 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button } from '@/components/ui/button';
 import { storage } from './../../../configs/firebaseConfig';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { IoMdCloseCircle } from "react-icons/io";
 import { ListingImages } from './../../../configs/schema';
 import { db } from './../../../configs';
+import { eq } from 'drizzle-orm';
 
-function UploadImages({triggleUploadImages, setLoader}) {
 
-    const[selectedFileList,setSelectedFileList]=useState([]);
-    
+function UploadImages({triggleUploadImages, setLoader, listingInfo, mode}) {
+
+    const [selectedFileList, setSelectedFileList]=useState([]);
+    const [EditCarImageList, setEditCarImageList]=useState([]);
+
+    useEffect(()=>{
+        if (mode=='edit')
+        {
+            setEditCarImageList([]);
+            listingInfo?.images.forEach((image) => {
+                setEditCarImageList(prev=>[...prev,image?.imageUrl]);
+            })
+        }
+    },[listingInfo])
+
     useEffect(()=>{
         if(triggleUploadImages)
         {
             UploadImagesToServer(); 
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[triggleUploadImages])
 
     const onFileSelected=(event)=>{ 
@@ -32,6 +45,12 @@ function UploadImages({triggleUploadImages, setLoader}) {
     const onImageRemove=(image,index)=>{
         const result=selectedFileList.filter((item)=>item!=image);
         setSelectedFileList(result);
+    }
+    const onImageRemoveFromDB=async(image,index)=>{
+        const result=await db.delete(ListingImages).where(eq(ListingImages.id,listingInfo.images[index].id)).returning({id:ListingImages.id});
+
+        const imageList=EditCarImageList.filter(item=>item!=image);
+        setEditCarImageList(imageList);
     }
 
     const UploadImagesToServer=async()=>{
@@ -60,20 +79,30 @@ function UploadImages({triggleUploadImages, setLoader}) {
     return (
         <div>
             <h2 className='font-bold text-2xl mb-6'>Upload Images</h2>
-            <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-5'>
+            <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5 '>
+                {mode=='edit'&&
+                    EditCarImageList.map((image,index)=>(
+                        <div key={index}>
+                            <IoMdCloseCircle className='absolute m-2 text-2xl text-white hover:text-red-500 transition-colors duration-200' 
+                            onClick={()=> onImageRemoveFromDB(image, index)} 
+                            /> 
+                            <img src={image} className='w-64 h-64 object-cover rounded-md border-2 border-gray-100'/>
+                        </div>
+                    ))
+                }
                 {selectedFileList.map((image,index)=>(
                     <div key={index}>
-                        <IoMdCloseCircle className='absolute m-2 text-lg text-white hover:text-red-500 transition-colors duration-200' 
+                        <IoMdCloseCircle className='absolute m-2 text-2xl  text-white hover:text-red-500 transition-colors duration-200' 
                             onClick={()=> onImageRemove(image, index)} 
                         /> 
     
-                        <img src={URL.createObjectURL(image)} className='w-full h-[130px] object-cover rounded-md'/>
+                        <img src={URL.createObjectURL(image)} className='w-64 h-64 object-cover rounded-md border-2 border-gray-100'/>
                     </div>
                 ))}
                 <label htmlFor='upload-images'>
-                    <div className=' h-[130px] border rounded-xl border-dotted 
+                    <div className=' w-64 h-64 border rounded-xl border-dotted 
                     border-primary bg-blue-100 p-10 cursor-pointer hover:shadow-md'>
-                        <h2 className='text-lg text-center text-primary '>+</h2>
+                        <h2 className='text-4xl text-center text-primary pt-16'>+</h2>
                     </div>
                 </label>
                 <input type="file" multiple={true} id='upload-images'

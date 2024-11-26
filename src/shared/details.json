@@ -12,7 +12,7 @@
             "label": "Category ",
             "name": "category",
             "fieldType": "dropdown",
-            "options": ["Built PC", "CPU", "Graphics Card", "Memory", "Motherboard", "Storage", "Case", "CPU Cooler", "Power Supply", "Others/Electronics"],
+            "options": ["Pre-built", "CPU", "Graphics Card", "Memory", "Motherboard", "Storage", "Case", "CPU Cooler", "Power Supply", "Others"],
             "required": true,
             "column": 1,
             "icon":"FaComputer"

@@ -64,7 +64,7 @@ function AddListing() {
     const onSubmit=async(e)=> {
         setLoader(true);
         e.preventDefault();
-        toast("Uploading Listing...", {
+        toast("Saving...", {
             action: {
                 label: "Close",
                 onClick: () => console.log("Undo"),
@@ -72,7 +72,7 @@ function AddListing() {
         });
         const requiredFields = details.details.filter((item) => item.required);
         const missingFields = requiredFields.filter(
-            (item) => !formData[item.name] || formData[item.name].trim() === ""
+            (item) => !formData[item.name] || formData[item.name].trim() === "" 
         );
     
         if (missingFields.length > 0) {
@@ -89,18 +89,28 @@ function AddListing() {
                 dateCreated: moment().format('MM/DD/YYYY')
             }).where(eq(Listing.id,recordId)).returning({id:Listing.id});
             console.log(result);
+            toast("Uploading Successfully Edited!", {
+                action: {
+                    label: "Close",
+                    onClick: () => console.log("Undo"),
+                },
+            });
+            setTriggerUploadImages(result[0]?.id);
+            navigate('/profile')
+            setLoader(false);
         }
         else{
             try{
                 const result=await db.insert(Listing).values({
                     ...formData,
                     createdBy:user?.primaryEmailAddress?.emailAddress,
+                    userName:user?.fullName,
+                    userImageUrl:user?.imageUrl,
                     dateCreated: moment().format('MM/DD/YYYY')
                 },
             ).returning({id:Listing.id});
                 if(result)
                 {   
-                    alert("Listing successfully created!")
                     toast("Listing successfully created!", {
                         description: `Created on ${moment().format("dddd, MMMM DD, YYYY at h:mm A")}`,
                         action: {
@@ -121,12 +131,19 @@ function AddListing() {
     return (
         <div> 
             <Header/>
-            <div className='px-10 md:px-64 my-10 h-auto bg-white'>
-                <h2 className='font-bold text-4xl'>Add New Listing</h2>
-                <form className='p-10 border rounded-xl mt-10'>
+            <div className='pt-20 px-10 md:px-64 my-10 h-auto bg-white'>
+            <h2 className='font-bold text-4xl'>
+            {mode === 'edit' ? 'Edit Listing' : 'Add New Listing'}
+            </h2>                
+            <form className='p-10 border rounded-xl mt-10'>
                     {/*Details*/}
                     
                     <div>
+                        <UploadImages triggleUploadImages={triggerUploadImages}
+                        listingInfo={listingInfo}
+                        mode={mode}
+                        setLoader={(v)=>{setLoader(v);navigate('/refresh')}}/>
+                        <Separator className="my-6"/>
                         <h2 className='font-bold text-2xl mb-6'>Details</h2>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                             {details.details.map((item, index) => (
@@ -176,12 +193,10 @@ function AddListing() {
                         </div>
                     </div>
                     <Separator className="my-6"/>
-                    <UploadImages triggleUploadImages={triggerUploadImages}
-                    setLoader={(v)=>{setLoader(v);navigate('/refresh')}}/>
-                    <Separator className="my-6"/>
+                    
                     <div className='mt-10 flex justify-end'>
-                        <Button type="submit" disabled={loader} onClick={(e)=>onSubmit(e)}>
-                            {!loader?'Create Listing':<BiLoaderAlt className='animate-spin text-3xl'/>}
+                        <Button type="submit" disabled={loader} onClick={(e) => onSubmit(e)}>
+                            {!loader ? (mode === 'edit' ? 'Save Changes' : 'Create Listing') : <BiLoaderAlt className='animate-spin text-3xl' />}
                         </Button>
                     </div>
                 </form>

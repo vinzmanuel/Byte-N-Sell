@@ -11,7 +11,7 @@ function Refresh() {
     // Delay of 1 second (1000ms)
     const timer = setTimeout(() => {
       navigate('/profile'); // Routes to the Profile page
-    }, 1000);
+    }, 3000);
 
     // Clean up the timer on component unmount
     return () => clearTimeout(timer);
