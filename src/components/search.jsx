@@ -36,7 +36,7 @@ function Search() {
             <Separator orientation="vertical" className='hidden md:block'/>
             
 
-            <Input onChange={(e) => setBrand(e.target.value)} type="text" placeholder="Brand/Manufacturer" 
+            <Input onChange={(e) => setBrand(e.target.value)} type="text" placeholder="Brand" 
             className="placeholder:text-lg text-lg"/>
 
             <Separator orientation="vertical" className='hidden md:block'/>

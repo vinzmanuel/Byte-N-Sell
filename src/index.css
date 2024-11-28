@@ -2,14 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
   overflow-y: scroll;
 }
 
 :root {
-  font-family: "Helvetica Neue", Arial, sans-serif;  line-height: 1.5;
-  font-weight: 400;
+  
   color-scheme: white;
   color: rgba(0, 0, 0, 0.87);
   background-color: #242424;
@@ -30,8 +28,13 @@ a:hover {
 }
 
 body {
+  @apply font-primary;
   width:100%;
   height: auto;
+}
+
+h1, h2, h3 {
+  @apply font-primary ;
 }
 
 h1 {

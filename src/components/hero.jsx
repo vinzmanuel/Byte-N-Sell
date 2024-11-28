@@ -5,8 +5,8 @@ function Hero() {
     return (
         <div>
             <div className='pt-32 flex flex-col items-center p-10 py-20 gap-6 h-[650px] w-full bg-[#eef0fc]'>
-                <h2 className='text-lg'>Find Shit for sale near you</h2>
-                <h2 className='text-[60px] font-bold'>Find your Dream Parts</h2>
+                <h2 className='text-lg'>Find PC part and tech for sale near you!</h2>
+                <h2 className='text-[60px] font-bold'>Find your dream parts</h2>
                 
                 <Search/>
                 

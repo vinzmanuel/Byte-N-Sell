@@ -12,6 +12,9 @@ import Refresh from './refresh'
 import SearchByCategory from './search/[category]'
 import SearchByOptions from './search'
 import ListingDetails from './listing-details/[id]'
+import Checkout from './checkout/[id['
+import LogisticsProgressStepper from './logistics/components/Logistics'
+import Logistics from './logistics'
 
 const router=createBrowserRouter([
   {
@@ -45,6 +48,14 @@ const router=createBrowserRouter([
   {
     path:'listing-details/:id',
     element:<ListingDetails/>
+  },
+  {
+    path:'checkout/:id',
+    element:<Checkout/>
+  },
+  {
+    path:'logistics',
+    element:<Logistics/>
   }
 ])
 

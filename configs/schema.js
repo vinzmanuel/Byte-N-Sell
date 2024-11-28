@@ -1,4 +1,4 @@
-import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
+import { boolean, integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
 
 export const Listing=pgTable('Listing',{
     id:serial('id').primaryKey(),
@@ -16,7 +16,8 @@ export const Listing=pgTable('Listing',{
     createdBy:varchar('createdBy').notNull(),
     userName:varchar('userName').notNull(),
     userImageUrl:varchar('userImageUrl'),
-    dateCreated:varchar('dateCreated')
+    dateCreated:varchar('dateCreated'),
+    available: boolean('available').notNull().default(true)
 })
 
 export const ListingImages=pgTable('listingImages',{

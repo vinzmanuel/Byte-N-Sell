@@ -3,6 +3,7 @@ import { SignInButton, UserButton, useUser } from '@clerk/clerk-react';
 import { Button } from './ui/button';
 import { Link } from 'react-router-dom';
 
+
 function Header() {
     const { user, isSignedIn } = useUser();
     const [isVisible, setIsVisible] = useState(true);
@@ -37,7 +38,7 @@ function Header() {
         >
             <div className="flex justify-between items-center p-5">
                 <Link to="/" className="cursor-pointer">
-                    <img src="/logo.svg" width={200} height={150} alt="Logo" />
+                    <img src="/BYTENSELL-2.png" width={200} height={150} />
                 </Link>
 
                 <ul className="hidden md:flex gap-16">
@@ -50,11 +51,8 @@ function Header() {
                 {isSignedIn ? (
                     <div className="flex items-center gap-5">
                         <UserButton />
-                        
                         <Link to={'/profile'}>
-                        
-                            <Button>Profile</Button>
-                        
+                            <Button>Go to Profile</Button>
                         </Link>
                     </div>
                 ) : (

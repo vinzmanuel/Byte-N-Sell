@@ -5,6 +5,7 @@ import Search from '@/components/search';
 import { db } from '../../configs';
 import { Listing, ListingImages } from '../../configs/schema';
 import { and, eq, or } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
@@ -16,7 +17,6 @@ function SearchByOptions() {
     const [listingList,setListingList]=useState([]); 
     const category=searchParams.get('category');
     const brand=searchParams.get('brand');
-    
     const sellingPrice=searchParams.get('sellingPrice');
 
     useEffect(()=>{
@@ -33,7 +33,7 @@ function SearchByOptions() {
             // Both category and brand are selected, apply AND condition
             query = query.where(and(
                 eq(Listing.category, category),
-                eq(Listing.brand, brand)
+                eq(Listing.listingtitle, brand)
             ));
         } else if (category !== undefined) {
             // Only category is selected, apply OR condition for brand
