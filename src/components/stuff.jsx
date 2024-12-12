@@ -26,25 +26,25 @@ function Stuff() {
 
             <div className="flex justify-between gap-6">
                 <div className="flex flex-col   w-64">
-                    <img src="/src/assets/icons/rating.png" className="w-28 mb-2" />
+                    <img src="/rating.png" className="w-28 mb-2" />
                     <h2 className='text-lg mb-2'>Very easy to transact with.</h2>
                     <h3 className='mb-1'>Very easy to transact with. Super Agent! Unit was exactly as advertised. Very professional and reliable!</h3>
                     <h3 className='text-gray-800'>@yunyunvalenzuela</h3>
                 </div>
                 <div className="flex flex-col   w-64">
-                    <img src="/src/assets/icons/rating.png" className="w-28 mb-2" />
+                    <img src="/rating.png" className="w-28 mb-2" />
                     <h2 className='text-lg mb-2'>Highly recommended seller</h2>
                     <h3 className='mb-1'>Highly Recommended Seller! Trustworthy and very easy to deal with! Excellent service! No complains here this is our second time to buy a unit with...</h3>
                     <h3 className='text-gray-800'>@vinzmanuel</h3>
                 </div>
                 <div className="flex flex-col  w-64">
-                    <img src="/src/assets/icons/rating.png" className="w-28 mb-2" />
+                    <img src="/rating.png" className="w-28 mb-2" />
                     <h2 className='text-lg mb-2'>Friendliest seller on Byte-N...</h2>
                     <h3 className='mb-1'>Pinakamabait na nakilala ko dto sa Byte-N-Sell! Instead of paying for her item she gave it to me for me yay bcos Bday nya napakabait! God bless You ate...</h3>
                     <h3 className='text-gray-800'>@lil_ryce</h3>
                 </div>
                 <div className="flex flex-col  w-64">
-                    <img src="/src/assets/icons/rating.png" className="w-28 mb-2" />
+                    <img src="/rating.png" className="w-28 mb-2" />
                     <h2 className='text-lg mb-2'>Loved the buying experience</h2>
                     <h3 className='mb-1'>This would be the second time Id use Buy-N-Sell to buy online and the experience is amazing. I love that its so easy and pleasant to interact with the</h3>
                     <h3 className='text-gray-800'>@ye</h3>
