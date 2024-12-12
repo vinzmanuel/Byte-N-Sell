@@ -100,52 +100,52 @@ const Category=[
     {
         id:1,
         name:'Pre-built',
-        icon:'/src/assets/icons/gaming-pc.png'
+        icon:'/gaming-pc.png'
     },
     {
         id:2,
         name:'CPU',
-        icon: '/src/assets/icons/cpu.png'
+        icon: '/cpu.png'
     },
     {
         id:3,
         name:'CPU Cooler',
-        icon: '/src/assets/icons/fan.png'
+        icon: '/fan.png'
     },
     {
         id:4,
         name:'Motherboard',
-        icon: '/src/assets/icons/mobo.png'
+        icon: '/mobo.png'
     },
     {
         id:5,
         name:'Graphics Card',
-        icon: '/src/assets/icons/gpu.png'
+        icon: '/gpu.png'
     },
     {
         id:6,
         name:'Memory',
-        icon: '/src/assets/icons/ram.png'
+        icon: '/ram.png'
     },
     {
         id:7,
         name:'Storage',
-        icon: '/src/assets/icons/storage.png'
+        icon: '/storage.png'
     },
     {
         id:8,
         name:'Case',
-        icon: '/src/assets/icons/case.png'
+        icon: '/case.png'
     },
     {
         id:9,
         name:'Power Supply',
-        icon: '/src/assets/icons/psu.png'
+        icon: '/psu.png'
     },
     {
         id:10,
         name:'Others',
-        icon: '/src/assets/icons/electronics.png'
+        icon: '/electronics.png'
     },
 ]
 

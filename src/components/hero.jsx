@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from './search'
+import gpu from '/src/assets/gpu2.png';
 
 function Hero() {
     return (
@@ -11,7 +12,7 @@ function Hero() {
                 <Search/>
                 
 
-                <img src='/src/assets/gpu2.png' className='mt-10 w-[1200px] translate-y-[-20px]'  />
+                <img src={gpu} className='mt-10 w-[1200px] translate-y-[-20px]'  />
             </div>
         </div>
     )
